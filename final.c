@@ -1,9 +1,9 @@
-#include <stdio.h>//Ä¿Ç°ÎÊÌâ£ºÎŞ·¨½«ÍêÕûµØÎÄ±¾ÎÄ¼şµ¼ÈëÁ´±í 
+#include <stdio.h>
 #include <stdlib.h>
-int LIST_INIT_SIZE=1;    //Á´±í³õÊ¼³¤¶È  
+int LIST_INIT_SIZE=1;    //é“¾è¡¨åˆå§‹é•¿åº¦  
 #define ERROR   0
 #define OK      1
-//Á´±í½á¹¹Ìå
+//é“¾è¡¨ç»“æ„ä½“
 struct LNode
 {
     int data;
@@ -16,10 +16,10 @@ struct LNode
     struct LNode *next;
 };
 
-//»ñÈ¡Á´±íÖĞÖ¸¶¨Î»ÖÃµÄÊı¾İ(²âÊÔÍ¨¹ı£© 
+//è·å–é“¾è¡¨ä¸­æŒ‡å®šä½ç½®çš„æ•°æ®(æµ‹è¯•é€šè¿‡ï¼‰ 
 int GetElem_L(struct LNode *L, int i)
 {
-    //LÎª´øÍ·½áµãµÄµ¥Á´±íµÄÍ·Ö¸Õë¡£µ±µÚi¸öÔªËØ´æÔÚÊ±£¬Æä¸³Öµ¸øe²¢·µ»ØOK£¬·ñÔò·µ»ØERROR
+    //Lä¸ºå¸¦å¤´ç»“ç‚¹çš„å•é“¾è¡¨çš„å¤´æŒ‡é’ˆã€‚å½“ç¬¬iä¸ªå…ƒç´ å­˜åœ¨æ—¶ï¼Œå…¶èµ‹å€¼ç»™eå¹¶è¿”å›OKï¼Œå¦åˆ™è¿”å›ERROR
     struct LNode *p;
     p= L->next;
     int j = 1;
@@ -39,7 +39,7 @@ int GetElem_L(struct LNode *L, int i)
     system("pause"); 
     return OK;
 }
-//ÏòÁ´±íÖĞÖ¸¶¨Î»ÖÃ²åÈëÊı¾İ£¨ÒÑ¾­½â¾öÁË£© 
+//å‘é“¾è¡¨ä¸­æŒ‡å®šä½ç½®æ’å…¥æ•°æ®ï¼ˆå·²ç»è§£å†³äº†ï¼‰ 
 int ListInsert_L(struct LNode *L, int i)
 {
     struct LNode *p, *s;
@@ -54,22 +54,22 @@ int ListInsert_L(struct LNode *L, int i)
     if (!p || j>i - 1) return ERROR;
 
     s = (struct LNode *) malloc(sizeof(struct LNode));
-    printf("ISBN¶àÉÙ:");
+    printf("ISBNå¤šå°‘:");
 	scanf("%d", &v);
     s->ISBN = v;
-    printf("\nÊéÃû×Ö:");
+    printf("\nä¹¦åå­—:");
     scanf("%d", &v);
     s->book = v;
-    printf("\n×÷Õß:");
+    printf("\nä½œè€…:");
     scanf("%d", &v);
     s->author = v;
-    printf("\nµÚ¼¸°æ:");
+    printf("\nç¬¬å‡ ç‰ˆ:");
     scanf("%d", &v);
     s->edition = v;
-    printf("\n³ö°æÉçÃû:");
+    printf("\nå‡ºç‰ˆç¤¾å:");
     scanf("%d", &v);
 	s->press = v;
-    printf("\n³ö°æÄê:");
+    printf("\nå‡ºç‰ˆå¹´:");
     scanf("%d", &v);
     s->year = v;
     s->next = p->next;
@@ -77,7 +77,7 @@ int ListInsert_L(struct LNode *L, int i)
     return OK;
 }
 
-//É¾³ıÁ´±íÖĞÖ¸¶¨Î»ÖÃµÄÊı¾İ(²âÊÔÍ¨¹ı£© 
+//åˆ é™¤é“¾è¡¨ä¸­æŒ‡å®šä½ç½®çš„æ•°æ®(æµ‹è¯•é€šè¿‡ï¼‰ 
 int ListDelete_L(struct LNode *L, int i, int *e)
 {
     struct LNode *p, *q;
@@ -96,47 +96,47 @@ int ListDelete_L(struct LNode *L, int i, int *e)
     return OK;
 }
 
-//´´½¨Á´±í,Â¼ÈëµÚ1¸öÔ­Ê¼Êı¾İ£¨²âÊÔÍ¨¹ı£© 
+//åˆ›å»ºé“¾è¡¨,å½•å…¥ç¬¬1ä¸ªåŸå§‹æ•°æ®ï¼ˆæµ‹è¯•é€šè¿‡ï¼‰ 
 void CreateList_L(struct LNode *L, int n)
 {
     int i;
     int v;
     struct LNode *p;
     L->next = NULL;
-    //Ñ­»·Â¼ÈëÊı¾İ
+    //å¾ªç¯å½•å…¥æ•°æ®
     for (i = n; i>0; --i)
     {
         p = (struct LNode *) malloc(sizeof(struct LNode));
-        printf("ISBN¶àÉÙ:");
+        printf("ISBNå¤šå°‘:");
 		scanf("%d", &v);
         p->ISBN = v;
-        printf("\nÊéÃû×Ö:");
+        printf("\nä¹¦åå­—:");
         scanf("%d", &v);
         p->book = v;
-        printf("\n×÷Õß:");
+        printf("\nä½œè€…:");
         scanf("%d", &v);
         p->author = v;
-        printf("\nµÚ¼¸°æ:");
+        printf("\nç¬¬å‡ ç‰ˆ:");
         scanf("%d", &v);
         p->edition = v;
-        printf("\n³ö°æÉçÃû:");
+        printf("\nå‡ºç‰ˆç¤¾å:");
         scanf("%d", &v);
         p->press = v;
-        printf("\n³ö°æÄê:");
+        printf("\nå‡ºç‰ˆå¹´:");
         scanf("%d", &v);
         p->year = v;
-        p->next = L->next;  //Í·²å·¨
+        p->next = L->next;  //å¤´æ’æ³•
         L->next = p;
     }
 }
-//Êä³öÁ´±íµ½ÎÄ¼ş (²âÊÔÍ¨¹ı)
+//è¾“å‡ºé“¾è¡¨åˆ°æ–‡ä»¶ (æµ‹è¯•é€šè¿‡)
 int PrintList_F(struct LNode *L){
     struct LNode *p;
     FILE *fp=fopen("text.txt","w");
     p = L->next;
     if (p == NULL)
     {
-        printf("Á´±íÎª¿Õ\n");
+        printf("é“¾è¡¨ä¸ºç©º\n");
         return ERROR;
     }
     while (p != NULL){
@@ -153,14 +153,14 @@ int PrintList_F(struct LNode *L){
     return OK;
 }
 
-//Êä³öÁ´±íÖĞµÄÊı¾İ(²âÊÔÍ¨¹ı²âÊÔ)
+//è¾“å‡ºé“¾è¡¨ä¸­çš„æ•°æ®(æµ‹è¯•é€šè¿‡æµ‹è¯•)
 int PrintList_L(struct LNode *L, char* s){
     struct LNode *p;
     printf("%s", s);
     p = L->next;
     if (p == NULL)
     {
-        printf("Á´±íÎª¿Õ\n");
+        printf("é“¾è¡¨ä¸ºç©º\n");
         return ERROR;
     }
     while (p != NULL){
@@ -184,7 +184,7 @@ int ListInsert_F(struct LNode *L,int i)//debuging
     if(fpRead==NULL)return 0;
     int v=0;
     struct LNode *p,*q,*head;
-    //Ñ­»·Â¼ÈëÊı¾İ
+    //å¾ªç¯å½•å…¥æ•°æ®
     while(!feof(fpRead))
     {    
 		p = (struct LNode *) malloc(sizeof(struct LNode));
@@ -205,7 +205,7 @@ int ListInsert_F(struct LNode *L,int i)//debuging
     L->next=head;
     return OK;
 }
-int Sort(struct LNode *L)/*µİÔöÅÅĞòº¯Êı£ºÈë¿Ú²ÎÊı£ºÁ´±íµÄÍ·Ö¸Õë£¬´ËÎªÁ´±íÖĞµÄÅÅĞòº¯Êı*///(²âÊÔÍ¨¹ı) 
+int Sort(struct LNode *L)/*é€’å¢æ’åºå‡½æ•°ï¼šå…¥å£å‚æ•°ï¼šé“¾è¡¨çš„å¤´æŒ‡é’ˆï¼Œæ­¤ä¸ºé“¾è¡¨ä¸­çš„æ’åºå‡½æ•°*///(æµ‹è¯•é€šè¿‡) 
 {
 	struct LNode *p,*q;
 	int temp;
@@ -240,40 +240,40 @@ int caidan()
 	char c;
 		do {
 			system("cls");
-			printf("1.ÊäÈëÊé±¾¼ÇÂ¼\n");
-			printf("2.ÏÔÊ¾ËùÓĞ¼ÇÂ¼\n");
-			printf("3.É¾¼ÇÂ¼\n");
-			printf("4.ÅÅĞò\n");
-			printf("5.²åÈë¼ÇÂ¼\n");
-			printf("6.²éÑ¯\n");
-			printf("7.´ÓÎÄ±¾ÎÄµµÖĞÌí¼Ó¼ÇÂ¼\n");
-			printf("8.Ğ´Èëµ½ÎÄ±¾ÎÄµµÖĞ\n");
-			printf("0.°İ°İ\n");
-			printf("Ñ¡Ò»¸ö:");
+			printf("1.è¾“å…¥ä¹¦æœ¬è®°å½•\n");
+			printf("2.æ˜¾ç¤ºæ‰€æœ‰è®°å½•\n");
+			printf("3.åˆ è®°å½•\n");
+			printf("4.æ’åº\n");
+			printf("5.æ’å…¥è®°å½•\n");
+			printf("6.æŸ¥è¯¢\n");
+			printf("7.ä»æ–‡æœ¬æ–‡æ¡£ä¸­æ·»åŠ è®°å½•\n");
+			printf("8.å†™å…¥åˆ°æ–‡æœ¬æ–‡æ¡£ä¸­\n");
+			printf("0.æ‹œæ‹œ\n");
+			printf("é€‰ä¸€ä¸ª:");
 			c=getchar();
 	}
 	while(c<'0'||c>'8');
 	return(c-'0');
 }
-//²Ëµ¥ 
+//èœå• 
 int main(void)
 {
-    //¶¨ÒåÁ´±í
+    //å®šä¹‰é“¾è¡¨
     struct LNode L;
     char key;
     int s, v;
     int i=1;
     int k=1;
-    printf("°´»Ø³µ¼ü¿ªÊ¼±íÑİ£¡"); 
+    printf("æŒ‰å›è½¦é”®å¼€å§‹è¡¨æ¼”ï¼"); 
     for(;;)
     {
 		getchar();
 		switch(caidan())
 	{
-	    case 1: //Â¼ÈëÊı¾İÑİÊ¾
+	    case 1: //å½•å…¥æ•°æ®æ¼”ç¤º
         for(;;)
         {
-        	printf("ÇëÊäÈëµÚ%d±¾ÊéµÄÊı¾İ£º\n",LIST_INIT_SIZE);//³õÊ¼»¯Á´±í
+        	printf("è¯·è¾“å…¥ç¬¬%dæœ¬ä¹¦çš„æ•°æ®ï¼š\n",LIST_INIT_SIZE);//åˆå§‹åŒ–é“¾è¡¨
 			if(LIST_INIT_SIZE==1)
 			{
 				CreateList_L(&L, 1);
@@ -281,7 +281,7 @@ int main(void)
 			 {
 			 	ListInsert_L(&L, LIST_INIT_SIZE);
 			 }
-            printf("°´y¼ÌĞøÊäÈë");
+            printf("æŒ‰yç»§ç»­è¾“å…¥");
             getchar();
 			key=getchar();
 			LIST_INIT_SIZE++;
@@ -290,44 +290,44 @@ int main(void)
 		case 2:
 			for(;i!=LIST_INIT_SIZE;i++)
 			{
-				PrintList_L(&L,"ËùÓĞÊé±¾µÄĞÅÏ¢ÈçÏÂ£º");
+				PrintList_L(&L,"æ‰€æœ‰ä¹¦æœ¬çš„ä¿¡æ¯å¦‚ä¸‹ï¼š");
 				system("pause");
 				break;
 			}
 			break; 
-		case 3://É¾³ı¹¦ÄÜÑİÊ¾
-        	printf("ÇëÒªÉ¾³ıÄÄÒ»±¾Êé£¿");
+		case 3://åˆ é™¤åŠŸèƒ½æ¼”ç¤º
+        	printf("è¯·è¦åˆ é™¤å“ªä¸€æœ¬ä¹¦ï¼Ÿ");
         	scanf("%d", &s);
         	if (ListDelete_L(&L, s, &v))   
 			{
-        		printf("É¾³ı³É¹¦.É¾³ıµÄÊÇ£º%dÕâ±¾Êé\n", v);LIST_INIT_SIZE--;
+        		printf("åˆ é™¤æˆåŠŸ.åˆ é™¤çš„æ˜¯ï¼š%dè¿™æœ¬ä¹¦\n", v);LIST_INIT_SIZE--;
 			}
         	else 
-				printf("É¾³ıÊ§°Ü.Î»ÖÃÓĞÎó.");
-        	PrintList_L(&L,"É¾³ıºóµÄÁ´±í£º");//¶¨Òå²åÈë/É¾³ı²Ù×÷Ê±Î»ÖÃºÍÊıÖµ²ÎÊı
+				printf("åˆ é™¤å¤±è´¥.ä½ç½®æœ‰è¯¯.");
+        	PrintList_L(&L,"åˆ é™¤åçš„é“¾è¡¨ï¼š");//å®šä¹‰æ’å…¥/åˆ é™¤æ“ä½œæ—¶ä½ç½®å’Œæ•°å€¼å‚æ•°
 			break;
 		case 4:Sort(&L);break;
-		case 5://²åÈë¹¦ÄÜÑİÊ¾
+		case 5://æ’å…¥åŠŸèƒ½æ¼”ç¤º
         	getchar();
-			printf("ÒªÔÚÄÄÒ»±¾ÊéÖ®¼ä²åÈë£¿");
+			printf("è¦åœ¨å“ªä¸€æœ¬ä¹¦ä¹‹é—´æ’å…¥ï¼Ÿ");
         	scanf("%d", &s);
-        	printf("%s", ListInsert_L(&L, s) ?"²åÈë³É¹¦.\n" : "²åÈëÊ§°Ü.\n");
-        	PrintList_L(&L,"²åÈëºóµÄÁ´±í£º"); break;
-        case 6://²éÑ¯¹¦ÄÜÑİÊ¾
-        	printf("²éÑ¯ÄÄÒ»±¾Êé?£º");
+        	printf("%s", ListInsert_L(&L, s) ?"æ’å…¥æˆåŠŸ.\n" : "æ’å…¥å¤±è´¥.\n");
+        	PrintList_L(&L,"æ’å…¥åçš„é“¾è¡¨ï¼š"); break;
+        case 6://æŸ¥è¯¢åŠŸèƒ½æ¼”ç¤º
+        	printf("æŸ¥è¯¢å“ªä¸€æœ¬ä¹¦?ï¼š");
         	scanf("%d", &s);
         	GetElem_L(&L,s);
-        	printf("µÚ%d±¾ÊéµÄĞÅÏ¢ÊÇ£º%d\n\n",s);
-        	PrintList_L(&L,"ËùÓĞÊé±¾µÄĞÅÏ¢ÈçÏÂ£º");
+        	printf("ç¬¬%dæœ¬ä¹¦çš„ä¿¡æ¯æ˜¯ï¼š%d\n\n",s);
+        	PrintList_L(&L,"æ‰€æœ‰ä¹¦æœ¬çš„ä¿¡æ¯å¦‚ä¸‹ï¼š");
         	break;
         case 7:
-			printf("Òª¼Óµ½ÄÄÀï£¿");
+			printf("è¦åŠ åˆ°å“ªé‡Œï¼Ÿ");
 			scanf("%d",&k); 
 			ListInsert_F(&L,k);break;
         case 8:
 			PrintList_F(&L);break;
         case 0:
-			system("cls");printf("ÎÒ³¬¼¶Ë§ÆøµÄ£¡\n");return; 
+			system("cls");printf("æˆ‘è¶…çº§å¸…æ°”çš„ï¼\n");return; 
 	 } 
     }
     system("pause");
