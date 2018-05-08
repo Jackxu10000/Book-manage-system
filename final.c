@@ -327,7 +327,7 @@ int main(void)
         case 8:
 			PrintList_F(&L);break;
         case 0:
-			system("cls");printf("我超级帅气的！\n");return; 
+			system("cls");return; 
 	 } 
     }
     system("pause");
